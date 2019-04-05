@@ -8,17 +8,15 @@ export const Input = styled.TextInput`
   height: 66px;
   padding-left: 26px;
   position: relative;
-  z-index: 1;
 `
 
 export const InputContainer = styled.View`
   position: relative;
-  z-index: 2;
 `
 
 export const IconContainer = styled.TouchableOpacity`
   position: absolute;
   right: 6%;
   top: 20px;
-  z-index: 3;
+  z-index: 1;
 `
