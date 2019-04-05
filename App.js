@@ -5,10 +5,24 @@ import { createStackNavigator, createAppContainer } from 'react-navigation'
 import { store } from './src/store'
 
 import Login from './src/components/Login'
+import Events from './src/components/Events'
 
-let RootStack = createStackNavigator({
-  Login
-})
+let RootStack = createStackNavigator(
+  {
+    Login: {
+      screen: Login,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Events: {
+      screen: Events
+    }
+  },
+  {
+    initialRouteName: 'Login'
+  }
+)
 
 const Navigation = createAppContainer(RootStack)
 
