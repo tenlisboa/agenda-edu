@@ -12,15 +12,6 @@ export const Container = styled.View`
   background-color: #fff;
 `
 
-export const Input = styled.TextInput`
-  ${props =>
-    props.inFocus ? 'border: 2px solid #733DBE;' : 'border: 1px solid #abb1b7;'}
-  border-radius: 4px;
-  height: 66px;
-  padding-left: 26px;
-  position: relative;
-`
-
 export const Title = styled.Text`
   font-size: 33px;
   font-family: 'System';

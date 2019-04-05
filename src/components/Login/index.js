@@ -6,10 +6,12 @@ import { connect } from 'react-redux'
 import { login } from '../../actions/auth'
 
 import ButtonBlock from '../Shared/ButtonBlock'
+import InputText from '../Shared/InputText'
+
 import { Screen, Container, Input, Title, Label } from './styles'
 
 class Login extends Component {
-  state = { inEmailFocus: false, inPasswordFocus: false }
+  state = { inEmailFocus: false, inPasswordFocus: false, showPassword: false }
   componentDidMount() {
     const { login } = this.props
 
@@ -24,20 +26,34 @@ class Login extends Component {
     this.setState({ inPasswordFocus: true, inEmailFocus: false })
   }
 
+  handleShowHidePassword = () => {
+    this.setState({ showPassword: !this.state.showPassword })
+  }
+
   render() {
     const { token, error } = this.props
-    const { inEmailFocus, inPasswordFocus } = this.state
+    const { inEmailFocus, inPasswordFocus, showPassword } = this.state
     return (
       <Screen>
         <Container>
           <Title>Faça seu login 🔑</Title>
           <View>
             <Label>E-mail ou usuário</Label>
-            <Input inFocus={inEmailFocus} onFocus={this.handleEmailFocus} />
+            <InputText
+              iconName="envelope"
+              iconColor="#AAAAAA"
+              inFocus={inEmailFocus}
+              onFocus={this.handleEmailFocus}
+            />
           </View>
           <View>
             <Label>Senha</Label>
-            <Input
+            <InputText
+              iconName={showPassword ? 'eye' : 'eye-slash'}
+              iconColor="#AAAAAA"
+              iconTouchable={true}
+              iconOnPress={this.handleShowHidePassword}
+              secureTextEntry={!showPassword}
               inFocus={inPasswordFocus}
               onFocus={this.handlePasswordFocus}
             />
