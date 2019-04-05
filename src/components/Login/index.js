@@ -17,18 +17,20 @@ class Login extends Component {
   }
 
   render() {
-    const { token } = this.props
+    const { token, error } = this.props
     return (
       <View>
         <Text>Login</Text>
         <Text>Token: {token}</Text>
+        <Text>Error: {error}</Text>
       </View>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  token: state.auth.token,
+  error: state.auth.error
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch)
