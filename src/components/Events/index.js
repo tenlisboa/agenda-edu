@@ -4,11 +4,17 @@ import { Text } from 'react-native'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { fetchEvents } from '../../actions/app'
 
 import AppContainer from '../AppContainer'
 // import { Container } from './styles';
 
 class Events extends Component {
+  componentWillMount() {
+    const { fetchEvents } = this.props
+    fetchEvents(1)
+  }
+
   openMenu = () => {
     alert('Open Menu')
   }
@@ -29,10 +35,10 @@ class Events extends Component {
 
 const mapStateToProps = state => ({})
 
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators(Actions, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ fetchEvents }, dispatch)
 
 export default connect(
-  mapStateToProps
-  // mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Events)

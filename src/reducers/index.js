@@ -1,5 +1,7 @@
-import authReducer from './authReducer'
+import authReducer from './auth/authReducer'
+import eventsReducer from './app/eventsReducer'
 
 export default {
-  auth: authReducer
+  auth: authReducer,
+  app: eventsReducer
 }
