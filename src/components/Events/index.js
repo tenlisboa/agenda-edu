@@ -1,18 +1,28 @@
 import React, { Component } from 'react'
 
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import AppContainer from '../AppContainer'
 // import { Container } from './styles';
 
 class Events extends Component {
+  openMenu = () => {
+    alert('Open Menu')
+  }
+
   render() {
     return (
-      <View>
+      <AppContainer
+        showHeader
+        title="Eventos"
+        icon="bars"
+        iconOnPress={this.openMenu}
+      >
         <Text>Events</Text>
-      </View>
+      </AppContainer>
     )
   }
 }

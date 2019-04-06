@@ -16,11 +16,14 @@ let RootStack = createStackNavigator(
       }
     },
     Events: {
-      screen: Events
+      screen: Events,
+      navigationOptions: {
+        header: null
+      }
     }
   },
   {
-    initialRouteName: 'Login'
+    initialRouteName: 'Events'
   }
 )
 

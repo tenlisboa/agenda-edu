@@ -1,9 +1,7 @@
 import styled from 'styled-components/native'
 import ButtonComponent from '../Shared/Button'
-import { getStatusBarHeight } from 'react-native-status-bar-height'
 
 export const Screen = styled.View`
-  margin-top: ${getStatusBarHeight()}px;
   padding-left: 34px;
   padding-right: 34px;
   height: 100%;
