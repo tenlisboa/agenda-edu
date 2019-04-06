@@ -2,7 +2,7 @@ import React from 'react'
 
 import { FontAwesome5 as Icon } from '@expo/vector-icons'
 
-import { Input, InputContainer, IconContainer } from './styles'
+import { Input, InputContainer, IconContainer, FeedBack } from './styles'
 
 const InputText = props => (
   <InputContainer>
@@ -11,11 +11,8 @@ const InputText = props => (
         <Icon name={props.iconName} size={26} color={props.iconColor} />
       )}
     </IconContainer>
-    <Input
-      secureTextEntry={props.secureTextEntry}
-      inFocus={props.inFocus}
-      onFocus={props.onFocus}
-    />
+    <Input autoCapitalize="none" {...props} />
+    {props.hasError && <FeedBack>{props.error}</FeedBack>}
   </InputContainer>
 )
 

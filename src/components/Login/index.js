@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { login } from '../../actions/auth'
 
-import ButtonBlock from '../Shared/ButtonBlock'
 import InputText from '../Shared/InputText'
 
-import { Screen, Container, Input, Title, Label } from './styles'
+import { Screen, Container, ButtonBlock, Title, Label } from './styles'
 
 class Login extends Component {
-  state = { inEmailFocus: false, inPasswordFocus: false, showPassword: false }
-  componentDidMount() {
-    const { login } = this.props
+  state = {
+    email: 'student@ae.com',
+    password: '123456',
+    inEmailFocus: false,
+    inPasswordFocus: false,
+    showPassword: false
+  }
 
-    login('gabriel@mail.com', '123456')
+  handleEmail = email => {
+    this.setState({ email })
+  }
+
+  handlePassword = password => {
+    this.setState({ password })
   }
 
   handleEmailFocus = () => {
@@ -30,23 +38,44 @@ class Login extends Component {
     this.setState({ showPassword: !this.state.showPassword })
   }
 
+  submit = async () => {
+    const { login } = this.props
+    const { email, password } = this.state
+
+    await login(email, password)
+
+    if (this.props.token) {
+      this.props.navigation.navigate('Events')
+    }
+  }
+
   render() {
-    const { token, error } = this.props
-    const { inEmailFocus, inPasswordFocus, showPassword } = this.state
+    const { error } = this.props
+    const {
+      inEmailFocus,
+      inPasswordFocus,
+      showPassword,
+      password,
+      email
+    } = this.state
     return (
       <Screen>
         <Container>
           <Title>Faça seu login 🔑</Title>
-          <View>
+          <View style={{ marginTop: 47 }}>
             <Label>E-mail ou usuário</Label>
             <InputText
               iconName="envelope"
               iconColor="#AAAAAA"
               inFocus={inEmailFocus}
               onFocus={this.handleEmailFocus}
+              value={email}
+              onChangeText={email => this.handleEmail(email)}
+              hasError={!!error}
+              error={error}
             />
           </View>
-          <View>
+          <View style={{ marginTop: 15 }}>
             <Label>Senha</Label>
             <InputText
               iconName={showPassword ? 'eye' : 'eye-slash'}
@@ -56,11 +85,13 @@ class Login extends Component {
               secureTextEntry={!showPassword}
               inFocus={inPasswordFocus}
               onFocus={this.handlePasswordFocus}
+              value={password}
+              onChangeText={password => this.handlePassword(password)}
             />
           </View>
         </Container>
 
-        <ButtonBlock title="Entrar" onPress={() => false} />
+        <ButtonBlock title="Entrar" onPress={this.submit} />
       </Screen>
     )
   }
