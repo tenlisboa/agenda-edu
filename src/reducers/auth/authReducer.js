@@ -1,4 +1,4 @@
-import { LOGIN, ERROR, BUSY } from '../actions/auth/types'
+import { LOGIN, ERROR, BUSY } from '../../actions/auth/types'
 
 const initialState = {
   token: null,
