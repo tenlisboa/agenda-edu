@@ -7,7 +7,7 @@ import { login } from '../../actions/auth'
 
 import InputText from '../Shared/InputText'
 
-import { Screen, Container, ButtonBlock, Title, Label } from './styles'
+import { Screen, Container, Button, Title, Label } from './styles'
 
 class Login extends Component {
   state = {
@@ -42,15 +42,15 @@ class Login extends Component {
     const { login } = this.props
     const { email, password } = this.state
 
-    await login(email, password)
+    const token = await login(email, password)
 
-    if (this.props.token) {
+    if (token) {
       this.props.navigation.navigate('Events')
     }
   }
 
   render() {
-    const { error } = this.props
+    const { error, busy } = this.props
     const {
       inEmailFocus,
       inPasswordFocus,
@@ -91,7 +91,12 @@ class Login extends Component {
           </View>
         </Container>
 
-        <ButtonBlock title="Entrar" onPress={this.submit} />
+        <Button
+          activeOpacity={0.5}
+          disabled={busy}
+          title="Entrar"
+          onPress={this.submit}
+        />
       </Screen>
     )
   }
@@ -99,6 +104,7 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   token: state.auth.token,
+  busy: state.auth.busy,
   error: state.auth.error
 })
 

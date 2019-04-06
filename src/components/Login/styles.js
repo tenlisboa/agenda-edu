@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-import Button from '../Shared/ButtonBlock'
+import ButtonComponent from '../Shared/Button'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
 
 export const Screen = styled.View`
@@ -28,7 +28,7 @@ export const Label = styled.Text`
   font-weight: 300;
 `
 
-export const ButtonBlock = styled(Button)`
+export const Button = styled(ButtonComponent)`
   position: absolute;
   bottom: 70px;
   left: 34px;

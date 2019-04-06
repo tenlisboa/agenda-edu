@@ -1,9 +1,12 @@
 import styled from 'styled-components/native'
 
-export const Button = styled.TouchableOpacity`
+export const ButtonComponent = styled.TouchableOpacity`
   border-radius: 7px;
   align-content: center;
-  background-color: #733dbe;
+  ${props =>
+    props.disabled
+      ? 'background-color: #733dbe87;'
+      : 'background-color: #733dbe;'}
   padding-top: 21px;
   padding-bottom: 21px;
 `

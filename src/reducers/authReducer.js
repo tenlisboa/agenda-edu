@@ -1,8 +1,9 @@
-import { LOGIN, ERROR } from '../actions/auth/types'
+import { LOGIN, ERROR, BUSY } from '../actions/auth/types'
 
 const initialState = {
   token: null,
-  error: null
+  error: null,
+  busy: false
 }
 
 export default (state = initialState, action) => {
@@ -11,6 +12,8 @@ export default (state = initialState, action) => {
       return { ...state, token: action.token }
     case ERROR:
       return { ...state, error: action.error }
+    case BUSY:
+      return { ...state, busy: action.busy }
     default:
       return state
   }
