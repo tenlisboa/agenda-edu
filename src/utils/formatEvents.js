@@ -1,4 +1,4 @@
-import dateToLong from './dateToLong'
+import { dateToLong } from './date'
 
 export default events => {
   let availableDates = events.map(event => dateToLong(event.sendAt))
