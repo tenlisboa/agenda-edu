@@ -6,6 +6,7 @@ import { store } from './src/store'
 
 import Login from './src/components/Login'
 import Events from './src/components/Events'
+import EventDetails from './src/components/EventDetails'
 
 let RootStack = createStackNavigator(
   {
@@ -20,6 +21,9 @@ let RootStack = createStackNavigator(
       navigationOptions: {
         header: null
       }
+    },
+    EventDetails: {
+      screen: EventDetails
     }
   },
   {

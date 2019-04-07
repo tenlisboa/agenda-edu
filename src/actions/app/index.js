@@ -1,6 +1,6 @@
 import api from '../../utils/api'
 import { AsyncStorage } from 'react-native'
-import { SET_EVENTS, BUSY } from './types'
+import { SET_EVENTS, BUSY, SELECT_EVENT } from './types'
 import formatEvents from '../../utils/formatEvents'
 
 export const fetchEvents = (page = 1) => async dispatch => {
@@ -27,5 +27,12 @@ export const fetchEvents = (page = 1) => async dispatch => {
       type: BUSY,
       busy: false
     })
+  }
+}
+
+export const selectEvent = event => {
+  return {
+    type: SELECT_EVENT,
+    event
   }
 }

@@ -5,7 +5,7 @@ import EventCard from './EventCard'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchEvents } from '../../actions/app'
+import { fetchEvents, selectEvent } from '../../actions/app'
 
 import Divider from '../Shared/Divider'
 import AppContainer from '../AppContainer'
@@ -27,6 +27,15 @@ class Events extends Component {
     } = this.props
 
     fetchEvents(parseInt(page) + 1)
+  }
+
+  selectEvent = event => {
+    const {
+      selectEvent,
+      navigation: { navigate }
+    } = this.props
+    selectEvent(event)
+    navigate('EventDetails')
   }
 
   openMenu = () => {
@@ -64,6 +73,7 @@ class Events extends Component {
               <Divider text={item.date} />
               {item.data.map((event, index) => (
                 <EventCard
+                  onPress={() => this.selectEvent(event)}
                   key={event.id}
                   hasMarginBottom={index + 1 !== item.data.length}
                   {...event}
@@ -84,7 +94,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchEvents }, dispatch)
+  bindActionCreators({ fetchEvents, selectEvent }, dispatch)
 
 export default connect(
   mapStateToProps,
