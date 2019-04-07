@@ -1,9 +1,12 @@
 import React from 'react'
+import { Text } from 'react-native'
 import moment from 'moment'
+import { FontAwesome5 as Icon } from '@expo/vector-icons'
 import {
   Card,
   Label,
   Title,
+  TimeArea,
   Time,
   Date,
   Image,
@@ -31,7 +34,12 @@ const EventCard = props => (
       <TextContainer>
         <Label>{'Eventos'.toUpperCase()}</Label>
         <Title>{props.title}</Title>
-        <Time>{moment(props.startAt).format('HH:MM')}</Time>
+        <TimeArea>
+          <Text style={{ marginRight: 5 }}>
+            <Icon name="clock" size={16} color="#666666" />
+          </Text>
+          <Time>{moment(props.startAt).format('HH:MM')}</Time>
+        </TimeArea>
         <Date>{dateToLong(props.sendAt, true)}</Date>
       </TextContainer>
     </Card>

@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
+import { View } from 'react-native'
 
-import { Text } from 'react-native'
+import EventCard from './EventCard'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchEvents } from '../../actions/app'
 
+import Divider from '../Shared/Divider'
 import AppContainer from '../AppContainer'
-// import { Container } from './styles';
+import { Screen } from './styles'
 
 class Events extends Component {
   componentWillMount() {
@@ -20,6 +22,7 @@ class Events extends Component {
   }
 
   render() {
+    const { events } = this.props
     return (
       <AppContainer
         showHeader
@@ -27,13 +30,32 @@ class Events extends Component {
         icon="bars"
         iconOnPress={this.openMenu}
       >
-        <Text>Events</Text>
+        <Screen
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 20 }}
+          data={events}
+          keyExtractor={item => item.date}
+          renderItem={({ item }) => (
+            <View>
+              <Divider text={item.date} />
+              {item.data.map((event, index) => (
+                <EventCard
+                  key={event.id}
+                  hasMarginBottom={index + 1 !== item.data.length}
+                  {...event}
+                />
+              ))}
+            </View>
+          )}
+        />
       </AppContainer>
     )
   }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+  events: state.app.events
+})
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ fetchEvents }, dispatch)

@@ -47,6 +47,11 @@ export const Title = styled.Text`
   color: ${dark};
 `
 
+export const TimeArea = styled.View`
+  flex-direction: row;
+  align-items: center;
+`
+
 export const Time = styled.Text`
   font-size: 18px;
   color: ${darker};
