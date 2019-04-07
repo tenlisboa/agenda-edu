@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, AsyncStorage } from 'react-native'
 import { FontAwesome5 as Icon } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 
@@ -27,6 +27,13 @@ class EventDetails extends Component {
     },
     headerStyle: {
       elevation: 0
+    }
+  }
+
+  async componentWillMount() {
+    const token = await AsyncStorage.getItem('@Auth:Token')
+    if (!token) {
+      this.props.navigation.navigate('Login')
     }
   }
 

@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
-import { View, ActivityIndicator } from 'react-native'
+import { View, ActivityIndicator, AsyncStorage } from 'react-native'
 
 import EventCard from './EventCard'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchEvents, selectEvent } from '../../actions/app'
+import { setToken } from '../../actions/auth'
 
 import Divider from '../Shared/Divider'
 import AppContainer from '../AppContainer'
 import { Screen, Loading } from './styles'
 
 class Events extends Component {
-  componentWillMount() {
+  async componentWillMount() {
+    const token = await AsyncStorage.getItem('@Auth:Token')
+    if (!token) {
+      this.props.navigation.navigate('Login')
+    }
+
     const { fetchEvents, metadata } = this.props
     if (!metadata.page) {
       fetchEvents()
@@ -94,7 +100,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ fetchEvents, selectEvent }, dispatch)
+  bindActionCreators({ fetchEvents, selectEvent, setToken }, dispatch)
 
 export default connect(
   mapStateToProps,
