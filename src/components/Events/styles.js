@@ -5,3 +5,7 @@ export const Screen = styled.FlatList`
   padding-left: 21px;
   padding-right: 21px;
 `
+
+export const Loading = styled.View`
+  margin-top: 25px;
+`

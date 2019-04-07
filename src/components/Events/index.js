@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 
 import EventCard from './EventCard'
 
@@ -9,16 +9,37 @@ import { fetchEvents } from '../../actions/app'
 
 import Divider from '../Shared/Divider'
 import AppContainer from '../AppContainer'
-import { Screen } from './styles'
+import { Screen, Loading } from './styles'
 
 class Events extends Component {
   componentWillMount() {
-    const { fetchEvents } = this.props
-    fetchEvents(1)
+    const { fetchEvents, metadata } = this.props
+    if (!metadata.page) {
+      fetchEvents()
+    }
+  }
+
+  loadMore = () => {
+    if (this.props.busy) return
+    const {
+      metadata: { page },
+      fetchEvents
+    } = this.props
+
+    fetchEvents(parseInt(page) + 1)
   }
 
   openMenu = () => {
     alert('Open Menu')
+  }
+
+  renderFooter = () => {
+    if (!this.props.busy) return null
+    return (
+      <Loading>
+        <ActivityIndicator size="large" />
+      </Loading>
+    )
   }
 
   render() {
@@ -34,7 +55,10 @@ class Events extends Component {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 20 }}
           data={events}
-          keyExtractor={item => item.date}
+          keyExtractor={item => item.data[0].id.toString()}
+          onEndReached={this.loadMore}
+          onEndReachedThreshold={0.1}
+          ListFooterComponent={this.renderFooter}
           renderItem={({ item }) => (
             <View>
               <Divider text={item.date} />
@@ -54,7 +78,9 @@ class Events extends Component {
 }
 
 const mapStateToProps = state => ({
-  events: state.app.events
+  events: state.app.events,
+  metadata: state.app.metadata,
+  busy: state.app.busy
 })
 
 const mapDispatchToProps = dispatch =>
