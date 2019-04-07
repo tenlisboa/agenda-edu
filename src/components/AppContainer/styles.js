@@ -14,13 +14,14 @@ export const Header = styled.View`
   align-items: center;
   padding-left: 21px;
   padding-right: 21px;
-  padding-top: 17px;
-  padding-bottom: 17px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: #fefefe;
-  border-bottom-color: #000;
+  border-color: #000;
   border-bottom-width: ${1 / PixelRatio.get()};
 `
+
 export const Title = styled.Text`
-  font-size: 20px;
+  font-size: 18px;
   margin-left: 26px;
 `

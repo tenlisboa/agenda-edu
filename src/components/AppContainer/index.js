@@ -16,7 +16,7 @@ class AppContainer extends Component {
         {this.props.showHeader && (
           <Header>
             <TouchableOpacity onPress={this.props.iconOnPress}>
-              <Icon name={this.props.icon} size={35} color={'#333333'} />
+              <Icon name={this.props.icon} size={26} color={'#333333'} />
             </TouchableOpacity>
             <Title>{this.props.title}</Title>
           </Header>
