@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginTop": 20,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": "100%",
+          "paddingLeft": 34,
+          "paddingRight": 34,
+          "paddingTop": "27%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FFFFFF",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "fontFamily": "System",
+              "fontSize": 33,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+      >
+        Faça seu login 🔑
+      </Text>
+      <View
+        style={
+          Object {
+            "marginTop": 47,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#666666",
+                "fontFamily": "System",
+                "fontSize": 14,
+                "fontWeight": "300",
+                "marginBottom": 10,
+              },
+            ]
+          }
+        >
+          E-mail ou usuário
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "position": "relative",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+                "position": "absolute",
+                "right": "6%",
+                "top": 20,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <TextInput
+            allowFontScaling={true}
+            autoCapitalize="none"
+            error={null}
+            hasError={false}
+            iconColor="#AAAAAA"
+            iconName="envelope"
+            inFocus={false}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            style={
+              Array [
+                Object {
+                  "borderColor": "#999999",
+                  "borderRadius": 4,
+                  "borderStyle": "solid",
+                  "borderWidth": 1,
+                  "height": 66,
+                  "paddingLeft": 26,
+                  "position": "relative",
+                },
+              ]
+            }
+            underlineColorAndroid="transparent"
+            value="student@ae.com"
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#666666",
+                "fontFamily": "System",
+                "fontSize": 14,
+                "fontWeight": "300",
+                "marginBottom": 10,
+              },
+            ]
+          }
+        >
+          Senha
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "position": "relative",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            isTVSelectable={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+                "position": "absolute",
+                "right": "6%",
+                "top": 20,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text />
+          </View>
+          <TextInput
+            allowFontScaling={true}
+            autoCapitalize="none"
+            iconColor="#AAAAAA"
+            iconName="eye-slash"
+            iconOnPress={[Function]}
+            iconTouchable={true}
+            inFocus={false}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            secureTextEntry={true}
+            style={
+              Array [
+                Object {
+                  "borderColor": "#999999",
+                  "borderRadius": 4,
+                  "borderStyle": "solid",
+                  "borderWidth": 1,
+                  "height": 66,
+                  "paddingLeft": 26,
+                  "position": "relative",
+                },
+              ]
+            }
+            underlineColorAndroid="transparent"
+            value="123456"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignContent": "center",
+          "backgroundColor": "#733DBE",
+          "borderRadius": 7,
+          "bottom": 70,
+          "left": 34,
+          "opacity": 1,
+          "paddingBottom": 21,
+          "paddingTop": 21,
+          "position": "absolute",
+          "right": 34,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "fontFamily": "System",
+              "fontSize": 21,
+              "fontWeight": "500",
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Entrar
+      </Text>
+    </View>
+  </View>
+</View>
+`;
