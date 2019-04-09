@@ -1,6 +1,8 @@
 import styled from 'styled-components/native'
 import ButtonComponent from '../Shared/Button'
 
+import { light, darker } from '../../styled/variables'
+
 export const Screen = styled.View`
   padding-left: 34px;
   padding-right: 34px;
@@ -9,7 +11,7 @@ export const Screen = styled.View`
 `
 
 export const Container = styled.View`
-  background-color: #fff;
+  background-color: ${light};
 `
 
 export const Title = styled.Text`
@@ -21,7 +23,7 @@ export const Title = styled.Text`
 export const Label = styled.Text`
   margin-bottom: 10px;
   font-size: 14px;
-  color: #666666;
+  color: ${darker};
   font-family: 'System';
   font-weight: 300;
 `

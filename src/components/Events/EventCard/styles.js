@@ -1,9 +1,6 @@
 import styled from 'styled-components/native'
 
-const gray = '#999999'
-const dark = '#333333'
-const darker = '#666666'
-const purple = '#733dbe'
+import { gray, dark, darker, purple, light } from '../../../styled/variables'
 
 export const CardWrapper = styled.View`
   background-color: ${purple};
@@ -16,7 +13,7 @@ export const CardWrapper = styled.View`
 export const Card = styled.View`
   flex-direction: row;
   align-items: center;
-  background-color: #fff;
+  background-color: ${light};
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   padding-left: 15px;

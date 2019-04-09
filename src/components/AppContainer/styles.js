@@ -2,6 +2,8 @@ import styled from 'styled-components/native'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
 import { PixelRatio } from 'react-native'
 
+import { light, dark } from '../../styled/variables'
+
 export const Container = styled.View`
   margin-top: ${getStatusBarHeight()}px;
 `
@@ -16,8 +18,8 @@ export const Header = styled.View`
   padding-right: 21px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #fefefe;
-  border-color: #000;
+  background-color: ${light};
+  border-color: ${dark};
   border-bottom-width: ${1 / PixelRatio.get()};
 `
 

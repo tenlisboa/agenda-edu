@@ -1,6 +1,12 @@
 import styled from 'styled-components/native'
 
-const darker = '#666666'
+import {
+  darker,
+  light,
+  purple,
+  purpleLight,
+  gray
+} from '../../styled/variables'
 
 export const Screen = styled.View`
   flex: 1;
@@ -9,7 +15,6 @@ export const Screen = styled.View`
 
 export const Image = styled.Image`
   width: 100%;
-  /* flex: 1; */
   height: 40%;
 `
 
@@ -17,7 +22,7 @@ export const Content = styled.View`
   position: absolute;
   top: 30%;
   bottom: 0;
-  background-color: #fff;
+  background-color: ${light};
   border-top-left-radius: 26px;
   border-top-right-radius: 26px;
   padding: 42px;
@@ -34,7 +39,7 @@ export const ContentHeaderTitle = styled.Text`
 `
 
 export const BlockDate = styled.View`
-  background-color: #f1ebf9;
+  background-color: ${purpleLight};
   width: 80px;
   height: 80px;
   justify-content: center;
@@ -44,7 +49,7 @@ export const BlockDate = styled.View`
 `
 
 export const BlockText = styled.Text`
-  color: #733dbe;
+  color: ${purple};
 `
 
 export const BlockTextTitle = styled(BlockText)`
@@ -60,11 +65,11 @@ export const TimeArea = styled.View`
 
 export const Time = styled.Text`
   font-size: 18px;
-  color: ${darker};
+  color: ${gray};
 `
 
 export const Description = styled.Text`
-  color: #666666;
+  color: ${darker};
   text-align: left;
   font-size: 16px;
   line-height: 31px;

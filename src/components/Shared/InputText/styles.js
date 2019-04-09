@@ -1,17 +1,18 @@
 import styled from 'styled-components/native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import { error, purple, gray } from '../../../styled/variables'
 
 export const Input = styled.TextInput`
   ${props => {
     if (props.hasError) {
-      return 'border: 2px solid #e03037;'
+      return `border: 2px solid ${error};`
     }
 
     if (props.inFocus) {
-      return 'border: 2px solid #733DBE;'
+      return `border: 2px solid ${purple};`
     }
 
-    return 'border: 1px solid #abb1b7;'
+    return `border: 1px solid ${gray};`
   }}
   border-radius: 4px;
   height: 66px;
@@ -32,6 +33,6 @@ export const IconContainer = styled.TouchableOpacity`
 
 export const FeedBack = styled.Text`
   margin-top: 5px;
-  color: #e03037;
+  color: ${error};
   font-size: 15px;
 `

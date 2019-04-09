@@ -1,6 +1,8 @@
 import styled from 'styled-components/native'
 import { PixelRatio, Dimensions } from 'react-native'
 
+import { gray } from '../../../styled/variables'
+
 export const Container = styled.View`
   flex-direction: row;
   align-items: flex-end;
@@ -10,12 +12,12 @@ export const Container = styled.View`
 
 export const DividerText = styled.Text`
   font-size: ${Dimensions.get('window').width / 27}px;
-  color: #999999;
+  color: ${gray};
   margin-right: 15px;
 `
 
 export const Line = styled.View`
   flex: 1;
-  border-color: #999999;
+  border-color: ${gray};
   border-bottom-width: ${1 / PixelRatio.get()};
 `
