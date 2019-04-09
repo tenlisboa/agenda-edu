@@ -1,7 +1,7 @@
 import { ERROR, BUSY } from '../../actions/auth/types'
 
 const initialState = {
-  token: null,
+  error: null,
   busy: false
 }
 
