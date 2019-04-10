@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Agenda Edu",
-    "slug": "agenda-edu",
+    "name": "Agenda Edu Submition test",
+    "slug": "agenda-edu-submition-test",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A submission test for Agenda Edu, this is an application to list school events, show details with the purpose of organizing your student life",
+    "githubUrl": "https://github.com/tenlisboa/agenda-edu"
   }
 }
