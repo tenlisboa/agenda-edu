@@ -15,13 +15,9 @@ import { Screen, Loading } from './styles'
 
 class Events extends Component {
   async componentWillMount() {
-    const token = await AsyncStorage.getItem('@Auth:Token')
-    if (!token) {
-      this.props.navigation.navigate('Login')
-    }
+    const { events, fetchEvents, busy } = this.props
 
-    const { fetchEvents, metadata } = this.props
-    if (!metadata.page) {
+    if (events.length <= 0 && !busy) {
       fetchEvents()
     }
   }

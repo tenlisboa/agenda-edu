@@ -12,8 +12,8 @@ import { Screen, Container, Button, Title, Label } from './styles'
 
 class Login extends Component {
   state = {
-    email: 'student@ae.com',
-    password: '123456',
+    email: '',
+    password: '',
     inEmailFocus: false,
     inPasswordFocus: false,
     showPassword: false
@@ -46,6 +46,7 @@ class Login extends Component {
     const token = await login(email, password)
 
     if (token) {
+      this.setState({ email: '', password: '' })
       this.props.navigation.navigate('Events')
     }
   }

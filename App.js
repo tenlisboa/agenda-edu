@@ -27,7 +27,7 @@ let RootStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: 'Events'
+    initialRouteName: 'Login'
   }
 )
 
